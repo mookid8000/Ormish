@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2050
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ormish", "Ormish\Ormish.csproj", "{BD4F3E4A-6524-4109-950A-FB2DF6DEB487}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ormish.Tests", "Ormish.Tests\Ormish.Tests.csproj", "{B4329C88-8CBA-44E8-AF1D-3AE424DD105D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BD4F3E4A-6524-4109-950A-FB2DF6DEB487}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BD4F3E4A-6524-4109-950A-FB2DF6DEB487}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BD4F3E4A-6524-4109-950A-FB2DF6DEB487}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BD4F3E4A-6524-4109-950A-FB2DF6DEB487}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B4329C88-8CBA-44E8-AF1D-3AE424DD105D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B4329C88-8CBA-44E8-AF1D-3AE424DD105D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B4329C88-8CBA-44E8-AF1D-3AE424DD105D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B4329C88-8CBA-44E8-AF1D-3AE424DD105D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D15DE515-070A-45FE-BA5A-F0AFC5CFD8A0}
+	EndGlobalSection
+EndGlobal
