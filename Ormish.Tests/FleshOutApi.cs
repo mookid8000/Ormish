@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Threading.Tasks;
 using NUnit.Framework;
-using Ormish.Stuff;
 
 namespace Ormish.Tests
 {
@@ -20,7 +19,7 @@ namespace Ormish.Tests
         }
 
         [Test]
-        public async Task CanRoundtripSimpleDocument()
+        public async Task CanRoundtripSimpleDocumentWithinSingleSession()
         {
             using (var session = new OrmishSession(MongoDatabase))
             {
@@ -33,12 +32,40 @@ namespace Ormish.Tests
 
                 Assert.That(roundtrippedDocument, Is.Not.Null);
                 Assert.That(roundtrippedDocument.Text, Is.EqualTo("i'd like to read this shit again"));
+
+                await session.SaveChanges();
+            }
+        }
+
+        [Test]
+        public async Task CanRoundtripSimpleDocumentAcrossTwoSessions()
+        {
+            string id;
+
+            using (var session = new OrmishSession(MongoDatabase))
+            {
+                var someDocument = new SomeDocument { Text = "i'd like to read this shit again" };
+                
+                id = await session.Save(someDocument);
+
+                Console.WriteLine($"Generated ID: {id}");
+
+                await session.SaveChanges();
+            }
+
+            using (var session = new OrmishSession(MongoDatabase))
+            {
+                var roundtrippedDocument = await session.Load<SomeDocument>(id);
+
+                Assert.That(roundtrippedDocument, Is.Not.Null);
+                Assert.That(roundtrippedDocument.Text, Is.EqualTo("i'd like to read this shit again"));
             }
         }
     }
 
     public class SomeDocument
     {
+        public string Id { get; set; }
         public string Text { get; set; }
     }
 }
